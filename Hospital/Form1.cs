@@ -18,5 +18,12 @@ namespace Hospital
             InitializeComponent();
             dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT date as Date, time as Time, CONCAT('',surname,firstname,otchestvo) as Client FROM [Priem] join [Client] on Priem.id_client = Client.id;");
         }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Client inscl = new Client();
+            inscl.Hide();
+            inscl.Show();
+        }
     }
 }

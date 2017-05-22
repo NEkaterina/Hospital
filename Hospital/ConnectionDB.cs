@@ -11,13 +11,13 @@ namespace Hospital
    public class ConnectionDB
     {
         public static SqlConnection sql = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\DB(kur)\MedDB.mdf;Integrated Security=True;Connect Timeout=30");
-      
+
 
         static ConnectionDB()
         {
         }
-       
-        public static void executeQuery(string s)
+        
+        public static void queryExecute(string s)
         {
             sql.Open();
 
@@ -26,8 +26,10 @@ namespace Hospital
             sc.ExecuteNonQuery();
             sql.Close();
         }
+
         public static DataTable getResult(string s)
         {
+
             sql.Open();
             SqlCommand sc = new SqlCommand(s, sql);
 
@@ -41,8 +43,8 @@ namespace Hospital
 
             return dt;
         }
+       
 
-      
-    }
+        }
 }
 
