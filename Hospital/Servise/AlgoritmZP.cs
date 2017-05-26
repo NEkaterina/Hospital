@@ -23,41 +23,11 @@ namespace Hospital.Servise
                 comboFio.Items.Add(dt.Rows[i][0]);
             }
         }
-        public int RaschetZarplat2( int VR, int Premia, int Oklad)
-        {
-            int zarplata = 0;
-            string n = "";
-            if (checkBox1.Checked == true) { zarplata = Oklad * VR; }
-            if (checkBox2.Checked == true) { zarplata = Oklad * VR + Premia; }
-            if (checkBox3.Checked == true) { zarplata = Oklad; }
-            if (checkBox4.Checked == true)
-            {
-                zarplata = Oklad + Premia;
-            }
-           
-
-            return zarplata;
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            DateTime dt1 = dateS.Value;
-            DateTime dt2 = dateF.Value;
-          
-            int days = (int)(dt2 - dt1).TotalDays;
-            int week = days / 7;
-            int calc = 0;
-            int p = 0;
-            DataTable dt = ConnectionDB.getResult("select DATEDIFF(hh, timeS,timeF) from [TimeTable] join [Doctor] on TimeTable.id_doctor= Doctor.id where CONCAT(' ', surname,firstname,otchestvo) =N'" + comboFio.Text + "' ; ");
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                calc += Convert.ToInt32(dt.Rows[i][0]);
-                
-            }
-            
-            maskedTime.Text = Convert.ToString(calc*week);
-           
+            raschetTime();          
         }
 
         private void comboFio_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,20 +39,74 @@ namespace Hospital.Servise
 
         private void butOk_Click(object sender, EventArgs e)
         {
+            insertSalary();
+            Close();
+        }
+        void insertSalary()
+        {
             Salary salary = new Salary();
             int time = Convert.ToInt32(maskedTime.Text);
             int prize = Convert.ToInt32(maskedPrize.Text);
             int oklad = Convert.ToInt32(maskedOklad.Text);
-            int zarplata = RaschetZarplat2(time,prize,oklad);
-            //  textBox1.Text = Convert.ToString(zarplata);
+            int zarplata = raschetZarplat(time, prize, oklad);
             DataTable dt = ConnectionDB.getResult(@"SELECT id  FROM  [Doctor] where CONCAT(' ', surname,firstname,otchestvo) = N'" + comboFio.Text + "'; ");
 
-            int id= (int)dt.Rows[0][0];
+            int id = (int)dt.Rows[0][0];
+
+            if (salary.butPere.Text == "Расчитать") {
 
             ConnectionDB.queryExecute(@"insert into [Salary] (id_doctor,timeWok,prize,salary,dataNach,dataFin)  VALUES(N'"
-  + id + "',N'" + maskedTime.Text + "',N'" + maskedPrize.Text + "',N'" + zarplata + "',N'" + dateS.Text + "',N'" + dateF.Text  + "');");
+  + id + "',N'" + maskedTime.Text + "',N'" + maskedPrize.Text + "',N'" + zarplata + "',N'" + dateS.Text + "',N'" + dateF.Text + "');");
+            }
+        }
+         void raschetTime()
+        {
+            DateTime dt1 = dateS.Value;
+            DateTime dt2 = dateF.Value;
 
-            Close();
+            int days = (int)(dt2 - dt1).TotalDays;
+            int week = days / 7;
+            int calc = 0;
+            int p = 0;
+            DataTable dt = ConnectionDB.getResult("select DATEDIFF(hh, timeS,timeF) from [TimeTable] join [Doctor] on TimeTable.id_doctor= Doctor.id where CONCAT(' ', surname,firstname,otchestvo) =N'" + comboFio.Text + "' ; ");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                calc += Convert.ToInt32(dt.Rows[i][0]);
+
+            }
+
+            maskedTime.Text = Convert.ToString(calc * week);
+        }
+       public  int raschetZarplat(int VR, int Premia, int Oklad)
+        {
+            int zarplata = 0;
+            string n = "";
+            if (radioButton1.Checked == true) { zarplata = Oklad * VR; }
+            if (radioButton2.Checked == true) { zarplata = Oklad * VR + Premia; }
+            if (radioButton3.Checked == true) { zarplata = Oklad; }
+            if (radioButton4.Checked == true)
+            {
+                zarplata = Oklad + Premia;
+            }
+
+
+            return zarplata;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            maskedPrize.Enabled = false;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            maskedTime.Enabled = false;
+            maskedPrize.Enabled = false;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            maskedTime.Enabled = false;
         }
     }
 }

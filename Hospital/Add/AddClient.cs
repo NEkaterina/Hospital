@@ -22,6 +22,12 @@ namespace Hospital
 
         private void butOk_Click(object sender, EventArgs e)
         {
+            addClient();
+            Close();
+        }
+
+        void addClient()
+        {
             if (!check())
             {
                 return;
@@ -31,9 +37,7 @@ namespace Hospital
   + tSurname.Text + "',N'" + tFirstname.Text + "',N'" + tOtchestvo.Text + "',N'" + comboSex.Text + "','" + dateOfBirth.Text + "','" + mSeries.Text + "','" + mNumber.Text + "',N'" + tCity.Text + "',N'"
   + tStreet.Text + "','" + mHouse.Text + "','" + mApartment.Text + "','" + mPhone.Text + "',N'" + tEmail.Text + "','" + mPolicy.Text + "');");
 
-            Close();
         }
-
 
         public bool check()
         {

@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,47 +41,11 @@
             this.dateS = new System.Windows.Forms.DateTimePicker();
             this.dateF = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(209, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Простая повременная оплата труда";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 35);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(230, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Повременно-премиальная оплата труда";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(12, 58);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(145, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Окладная оплата труда";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(12, 81);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(210, 17);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Окладно-премиальная оплата труда";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -141,9 +101,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(204, 195);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 23);
+            this.button1.Size = new System.Drawing.Size(51, 23);
             this.button1.TabIndex = 12;
-            this.button1.Text = "button1";
+            this.button1.Text = "Время";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -202,12 +162,63 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "----";
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(15, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(208, 17);
+            this.radioButton1.TabIndex = 19;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Простая повременная оплата труда";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(15, 35);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(229, 17);
+            this.radioButton2.TabIndex = 20;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Повременно-премиальная оплата труда";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(15, 58);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(144, 17);
+            this.radioButton3.TabIndex = 21;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Окладная оплата труда";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(15, 81);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(209, 17);
+            this.radioButton4.TabIndex = 22;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Окладно-премиальная оплата труда";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
             // AlgoritmZP
             // 
             this.AcceptButton = this.butOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 309);
+            this.ClientSize = new System.Drawing.Size(258, 309);
+            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateF);
             this.Controls.Add(this.dateS);
@@ -221,10 +232,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
             this.Name = "AlgoritmZP";
             this.Text = "AlgoritmZP";
             this.ResumeLayout(false);
@@ -233,23 +240,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox maskedPrize;
-        private System.Windows.Forms.MaskedTextBox maskedTime;
-        private System.Windows.Forms.MaskedTextBox maskedOklad;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button butOk;
-        private System.Windows.Forms.ComboBox comboFio;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateS;
-        private System.Windows.Forms.DateTimePicker dateF;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.MaskedTextBox maskedPrize;
+        public System.Windows.Forms.MaskedTextBox maskedTime;
+        public System.Windows.Forms.MaskedTextBox maskedOklad;
+        public System.Windows.Forms.ComboBox comboFio;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DateTimePicker dateS;
+        public System.Windows.Forms.DateTimePicker dateF;
     }
 }
