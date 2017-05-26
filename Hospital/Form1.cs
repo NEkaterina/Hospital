@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hospital.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +23,44 @@ namespace Hospital
         private void clientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Client inscl = new Client();
-            inscl.Hide();
-            inscl.Show();
+            this.Hide();
+            inscl.ShowDialog();
+            this.Show();
+        }
+
+        private void specialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Specialty specialty = new Specialty();
+            this.Hide();
+            specialty.ShowDialog();     
+            this.Show();
+        }
+
+        private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Salary doc = new Salary();
+            this.Hide();
+            doc.ShowDialog();
+
+            this.Show();
+        }
+
+        private void doctorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Doctor doc = new Doctor();
+            this.Hide();
+            doc.ShowDialog();
+           
+            this.Show();
+        }
+
+        private void timeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimeTable doc = new TimeTable();
+            this.Hide();
+            doc.ShowDialog();
+
+            this.Show();
         }
     }
 }
