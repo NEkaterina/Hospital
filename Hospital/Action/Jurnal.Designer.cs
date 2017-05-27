@@ -81,7 +81,7 @@
             this.raschet.Name = "raschet";
             this.raschet.Size = new System.Drawing.Size(75, 25);
             this.raschet.TabIndex = 4;
-            this.raschet.Text = "raschet";
+            this.raschet.Text = "Рассчитать";
             this.raschet.UseVisualStyleBackColor = true;
             this.raschet.Click += new System.EventHandler(this.raschet_Click);
             // 

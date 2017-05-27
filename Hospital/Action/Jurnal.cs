@@ -19,17 +19,29 @@ namespace Hospital.Action
         public Jurnal()
         {
             InitializeComponent();
-            timeTable.DataSource = Connection.getResult(@"SELECT Priem.id, date as Date, time as Time, CONCAT('',surname,firstname,otchestvo) as Client FROM [Priem] join [Client] on Priem.id_client = Client.id where date = CAST(GETDATE() AS DATE);");
-
+            updateTime();
             update();
         }
         void update()
         {
-              perfomend.DataSource = Connection.getResult(@"SELECT * FROM [Journal] ;");
+              perfomend.DataSource = Connection.getResult(@"SELECT j.id, nameS, priceS, skidka, itog FROM [Journal] j join [Priem] p on j.id_priem = p.id join [Service] s on p.id_service=s.id ;");
+            perfomend.Columns[0].HeaderText = "№";
+            perfomend.Columns[1].HeaderText = "Наименование";
+            perfomend.Columns[2].HeaderText = "Цена";
+            perfomend.Columns[3].HeaderText = "Скидка";
+            perfomend.Columns[4].HeaderText = "Сумма";
+        }
+        void updateTime()
+        {
+            timeTable.DataSource = Connection.getResult(@"SELECT Priem.id, date , time , CONCAT('',surname,' ',firstname,' ',otchestvo)  FROM [Priem] join [Client] on Priem.id_client = Client.id where date = CAST(GETDATE() AS DATE);");
+            timeTable.Columns[0].HeaderText = "№";
+            timeTable.Columns[1].HeaderText = "Дата";
+            timeTable.Columns[2].HeaderText = "Время";
+            timeTable.Columns[3].HeaderText = "Пациент";
            
         }
-       
-        void insert()
+
+            void insert()
         {
             
 
@@ -84,7 +96,7 @@ namespace Hospital.Action
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            timeTable.DataSource = Connection.getResult(@"SELECT Priem.id, date as Date, time as Time, CONCAT('',surname,firstname,otchestvo) as Client FROM [Priem] join [Client] on Priem.id_client = Client.id where date='" + dateTimePicker1.Text + "';");
+            timeTable.DataSource = Connection.getResult(@"SELECT Priem.id, date as Дата, time as Время, CONCAT('',surname,firstname,otchestvo) as Пациент FROM [Priem] join [Client] on Priem.id_client = Client.id where date='" + dateTimePicker1.Text + "';");
         }
 
         private void Jurnal_Load(object sender, EventArgs e)
