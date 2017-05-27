@@ -17,12 +17,13 @@ namespace Hospital.Action
         {
             InitializeComponent();
             comboBoxService();
+            listCheked();
         }
 
         private void butOk_Click(object sender, EventArgs e)
         {
             addServise();
-            Close();
+           // Close();
         }
 
         void addServise()
@@ -31,6 +32,20 @@ namespace Hospital.Action
             int id_specialty = (int)dt.Rows[0][0];
 
             Connection.queryExecute(@"Insert into [Service] (id_specialty, nameS,priceS) VALUES(" + id_specialty + ",N'" + textBname.Text + "'," + maskedPrize.Text + ");");
+
+            dt = Connection.getResult(@"Select max(id) from [Service]");
+            int id_service = (int)dt.Rows[0][0];
+            for (int i = 0; i<listProduct.Items.Count; i++)
+            {
+                if (listProduct.GetItemChecked(i))
+                {
+                    dt= Connection.getResult(@"Select id From [Product] where name =N'" + listProduct.Items[i].ToString()+ "';");
+                    int id_product = (int)dt.Rows[0][0];
+                    Connection.queryExecute(@"Insert into [SerProd] (id_service, id_product) VALUES(" + id_service + "," + id_product  + ");");
+
+
+                }
+            }
         }
         void comboBoxService()
         {
@@ -40,6 +55,14 @@ namespace Hospital.Action
                 comboSpecialty.Items.Add(dt.Rows[i][0]);
             }
 
+        }
+        void listCheked()
+        {
+            dt = Connection.getResult(@"Select name From [Product]");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+               listProduct.Items.Add(dt.Rows[i][0]);
+            }
         }
     }
 }

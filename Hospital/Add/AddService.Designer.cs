@@ -36,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBname = new System.Windows.Forms.TextBox();
+            this.listProduct = new System.Windows.Forms.CheckedListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // butOk
@@ -109,14 +111,33 @@
             this.textBname.Size = new System.Drawing.Size(121, 20);
             this.textBname.TabIndex = 7;
             // 
+            // listProduct
+            // 
+            this.listProduct.FormattingEnabled = true;
+            this.listProduct.Location = new System.Drawing.Point(255, 61);
+            this.listProduct.Name = "listProduct";
+            this.listProduct.Size = new System.Drawing.Size(188, 154);
+            this.listProduct.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(252, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(191, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Выберите необходимые расходники";
+            // 
             // AddService
             // 
             this.AcceptButton = this.butOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butCanel;
-            this.ClientSize = new System.Drawing.Size(266, 256);
+            this.ClientSize = new System.Drawing.Size(455, 249);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.listProduct);
             this.Controls.Add(this.textBname);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -142,5 +163,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBname;
+        private System.Windows.Forms.CheckedListBox listProduct;
+        private System.Windows.Forms.Label label4;
     }
 }

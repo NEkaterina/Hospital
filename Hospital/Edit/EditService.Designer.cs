@@ -35,6 +35,8 @@
             this.butCanel = new System.Windows.Forms.Button();
             this.butOk = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.TextBox();
+            this.checkedList = new System.Windows.Forms.CheckedListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBname
@@ -73,7 +75,7 @@
             // butCanel
             // 
             this.butCanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.butCanel.Location = new System.Drawing.Point(173, 94);
+            this.butCanel.Location = new System.Drawing.Point(173, 118);
             this.butCanel.Name = "butCanel";
             this.butCanel.Size = new System.Drawing.Size(75, 23);
             this.butCanel.TabIndex = 9;
@@ -82,7 +84,7 @@
             // 
             // butOk
             // 
-            this.butOk.Location = new System.Drawing.Point(34, 94);
+            this.butOk.Location = new System.Drawing.Point(34, 118);
             this.butOk.Name = "butOk";
             this.butOk.Size = new System.Drawing.Size(75, 23);
             this.butOk.TabIndex = 8;
@@ -98,14 +100,31 @@
             this.id.Size = new System.Drawing.Size(27, 20);
             this.id.TabIndex = 14;
             // 
+            // checkedList
+            // 
+            this.checkedList.FormattingEnabled = true;
+            this.checkedList.Location = new System.Drawing.Point(267, 47);
+            this.checkedList.Name = "checkedList";
+            this.checkedList.Size = new System.Drawing.Size(120, 94);
+            this.checkedList.TabIndex = 15;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(267, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 16;
+            // 
             // EditService
             // 
             this.AcceptButton = this.butOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.butCanel;
-            this.ClientSize = new System.Drawing.Size(283, 140);
+            this.ClientSize = new System.Drawing.Size(411, 167);
             this.ControlBox = false;
+            this.Controls.Add(this.checkedList);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.id);
             this.Controls.Add(this.textBname);
             this.Controls.Add(this.label3);
@@ -115,6 +134,7 @@
             this.Controls.Add(this.butOk);
             this.Name = "EditService";
             this.Text = "Редактирование";
+            this.Load += new System.EventHandler(this.EditService_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +148,7 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.MaskedTextBox maskedPrize;
         public System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.CheckedListBox checkedList;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

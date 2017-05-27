@@ -73,6 +73,12 @@
     <Compile Include="Action\Priem.Designer.cs">
       <DependentUpon>Priem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add\AddEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddEntry.Designer.cs">
+      <DependentUpon>AddEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add\AddEntryJurnal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,12 @@
     <Compile Include="Servise\AlgoritmZP.Designer.cs">
       <DependentUpon>AlgoritmZP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servise\Skidka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servise\Skidka.Designer.cs">
+      <DependentUpon>Skidka.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Action\Jurnal.resx">
       <DependentUpon>Jurnal.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add\AddDoctor.resx">
       <DependentUpon>AddDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddEntry.resx">
+      <DependentUpon>AddEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add\AddEntryJurnal.resx">
       <DependentUpon>AddEntryJurnal.cs</DependentUpon>
@@ -297,6 +312,9 @@
     </Compile>
     <EmbeddedResource Include="Servise\AlgoritmZP.resx">
       <DependentUpon>AlgoritmZP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servise\Skidka.resx">
+      <DependentUpon>Skidka.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

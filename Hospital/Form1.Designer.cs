@@ -41,6 +41,7 @@
             this.операцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.JurnalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zakazTovarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сформироватьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,7 @@
             this.specialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.zakazTovarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SkidkaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -165,6 +166,13 @@
             this.JurnalToolStripMenuItem.Text = "Журнал работ";
             this.JurnalToolStripMenuItem.Click += new System.EventHandler(this.JurnalToolStripMenuItem_Click);
             // 
+            // zakazTovarToolStripMenuItem
+            // 
+            this.zakazTovarToolStripMenuItem.Name = "zakazTovarToolStripMenuItem";
+            this.zakazTovarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.zakazTovarToolStripMenuItem.Text = "Оформить заказ товаров";
+            this.zakazTovarToolStripMenuItem.Click += new System.EventHandler(this.zakazTovarToolStripMenuItem_Click);
+            // 
             // отчетыToolStripMenuItem
             // 
             this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -184,7 +192,8 @@
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.создатьОткрыткуToolStripMenuItem,
             this.отркрыткиToolStripMenuItem,
-            this.salaryToolStripMenuItem});
+            this.salaryToolStripMenuItem,
+            this.SkidkaToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
@@ -192,19 +201,19 @@
             // создатьОткрыткуToolStripMenuItem
             // 
             this.создатьОткрыткуToolStripMenuItem.Name = "создатьОткрыткуToolStripMenuItem";
-            this.создатьОткрыткуToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.создатьОткрыткуToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.создатьОткрыткуToolStripMenuItem.Text = "Создать открытку";
             // 
             // отркрыткиToolStripMenuItem
             // 
             this.отркрыткиToolStripMenuItem.Name = "отркрыткиToolStripMenuItem";
-            this.отркрыткиToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.отркрыткиToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.отркрыткиToolStripMenuItem.Text = "Отркрытки";
             // 
             // salaryToolStripMenuItem
             // 
             this.salaryToolStripMenuItem.Name = "salaryToolStripMenuItem";
-            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.salaryToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.salaryToolStripMenuItem.Text = "Расчет заработной платы";
             this.salaryToolStripMenuItem.Click += new System.EventHandler(this.salaryToolStripMenuItem_Click);
             // 
@@ -240,12 +249,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(365, 261);
             this.dataGridView1.TabIndex = 2;
             // 
-            // zakazTovarToolStripMenuItem
+            // SkidkaToolStripMenuItem
             // 
-            this.zakazTovarToolStripMenuItem.Name = "zakazTovarToolStripMenuItem";
-            this.zakazTovarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.zakazTovarToolStripMenuItem.Text = "Оформить заказ товаров";
-            this.zakazTovarToolStripMenuItem.Click += new System.EventHandler(this.zakazTovarToolStripMenuItem_Click);
+            this.SkidkaToolStripMenuItem.Name = "SkidkaToolStripMenuItem";
+            this.SkidkaToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.SkidkaToolStripMenuItem.Text = "Настройка скидки клиентам";
             // 
             // Form1
             // 
@@ -292,6 +300,7 @@
         private System.Windows.Forms.ToolStripMenuItem specialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zakazTovarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SkidkaToolStripMenuItem;
     }
 }
 

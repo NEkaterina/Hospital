@@ -17,14 +17,12 @@ namespace Hospital.Entities
         public Service()
         {
             InitializeComponent();
-           
         }
 
         private void Service_Load(object sender, EventArgs e)
         {
             comboBox();
-          //  dataGridService.Visible = false;
-        }
+         }
 
         private void butAddService_Click(object sender, EventArgs e)
         {
@@ -38,6 +36,7 @@ namespace Hospital.Entities
         private void butEditService_Click(object sender, EventArgs e)
         {
             EditService edit = new EditService();
+
             edit.id.Text = dataGridService.CurrentRow.Cells[0].Value.ToString();
             edit.textBname.Text = dataGridService.CurrentRow.Cells[1].Value.ToString();
             edit.maskedPrize.Text = dataGridService.CurrentRow.Cells[2].Value.ToString();
@@ -70,7 +69,6 @@ namespace Hospital.Entities
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  dataGridService.Visible = true;
             update();
 
         }
