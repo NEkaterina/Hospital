@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Hospital
 {
-   public class ConnectionDB
+   public class Connection
     {
         public static SqlConnection sql = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\DB(kur)\MedDB.mdf;Integrated Security=True;Connect Timeout=30");
 
 
-        static ConnectionDB()
+        static Connection()
         {
         }
         

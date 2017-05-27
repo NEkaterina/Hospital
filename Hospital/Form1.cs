@@ -1,4 +1,5 @@
-﻿using Hospital.Entities;
+﻿using Hospital.Action;
+using Hospital.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace Hospital
         public Form1()
         {
             InitializeComponent();
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT date as Date, time as Time, CONCAT('',surname,firstname,otchestvo) as Client FROM [Priem] join [Client] on Priem.id_client = Client.id;");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT date as Date, time as Time, CONCAT('',surname,firstname,otchestvo) as Client FROM [Priem] join [Client] on Priem.id_client = Client.id;");
         }
 
         private void clientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,9 +39,9 @@ namespace Hospital
 
         private void salaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           Salary doc = new Salary();
+           Salary sal = new Salary();
             this.Hide();
-            doc.ShowDialog();
+            sal.ShowDialog();
 
             this.Show();
         }
@@ -56,9 +57,72 @@ namespace Hospital
 
         private void timeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TimeTable doc = new TimeTable();
+            TimeTable table = new TimeTable();
             this.Hide();
-            doc.ShowDialog();
+            table.ShowDialog();
+
+            this.Show();
+        }
+
+        private void medRasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MedRashodniky medRas = new MedRashodniky();
+            this.Hide();
+            medRas.ShowDialog();
+
+            this.Show();
+        }
+
+        private void medObrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MedOboryd medObr = new MedOboryd();
+            this.Hide();
+            medObr.ShowDialog();
+
+            this.Show();
+        }
+
+        private void providerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Provider provid = new Provider();
+            this.Hide();
+            provid.ShowDialog();
+
+            this.Show();
+        }
+
+        private void zakazTovarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Order  order = new Order();
+            this.Hide();
+            order.ShowDialog();
+
+            this.Show();
+        }
+
+        private void serviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Service service = new Service();
+            this.Hide();
+            service.ShowDialog();
+
+            this.Show();
+        }
+
+        private void appointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Priem priem = new Priem();
+            this.Hide();
+            priem.ShowDialog();
+
+            this.Show();
+        }
+
+        private void JurnalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Jurnal jurnal = new Jurnal();
+            this.Hide();
+            jurnal.ShowDialog();
 
             this.Show();
         }

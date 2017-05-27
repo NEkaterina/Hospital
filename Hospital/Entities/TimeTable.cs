@@ -21,7 +21,7 @@ namespace Hospital.Entities
         }
         void updateData()
         {
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT t.id,day, timeS, timeF  FROM  [TimeTable] t join [Doctor] on t.id_doctor = Doctor.id join [Post] on Doctor.id_post = Post.id join [Specialty] on Post.id_specialty = Specialty.id ;");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT t.id,day, timeS, timeF  FROM  [TimeTable] t join [Doctor] on t.id_doctor = Doctor.id join [Post] on Doctor.id_post = Post.id join [Specialty] on Post.id_specialty = Specialty.id ;");
             dataGridView1.Columns[0].HeaderText = "id";
             dataGridView1.Columns[1].HeaderText = "День";
             dataGridView1.Columns[2].HeaderText = "Начало работы";
@@ -34,7 +34,7 @@ namespace Hospital.Entities
         }
        public void comboBox()
         {
-            DataTable dt = ConnectionDB.getResult("select specialty from "
+            DataTable dt = Connection.getResult("select specialty from "
                     + "[Specialty]");
 
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -72,13 +72,13 @@ namespace Hospital.Entities
 
         private void butDel_Click(object sender, EventArgs e)
         {
-            ConnectionDB.queryExecute("DELETE FROM [TimeTable] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            Connection.queryExecute("DELETE FROM [TimeTable] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
             updateData();
         }
 
         private void comboSpecialty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = ConnectionDB.getResult(@"SELECT CONCAT(' ', surname,firstname,otchestvo)  FROM  [Doctor] d join [Post] on d.id_post = Post.id join [Specialty] on Post.id_specialty = Specialty.id where specialty = N'" + comboSpecialty.Text + "';");
+            DataTable dt = Connection.getResult(@"SELECT CONCAT(' ', surname,firstname,otchestvo)  FROM  [Doctor] d join [Post] on d.id_post = Post.id join [Specialty] on Post.id_specialty = Specialty.id where specialty = N'" + comboSpecialty.Text + "';");
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -89,7 +89,7 @@ namespace Hospital.Entities
 
         private void comboDoctor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT d.id, day, timeS, timeF  FROM  [Doctor] d join [TimeTable] on d.id = TimeTable.id_doctor  where CONCAT(' ', surname,firstname,otchestvo) = N'" + comboDoctor.Text + "';");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT d.id, day, timeS, timeF  FROM  [Doctor] d join [TimeTable] on d.id = TimeTable.id_doctor  where CONCAT(' ', surname,firstname,otchestvo) = N'" + comboDoctor.Text + "';");
 
         }
 

@@ -19,7 +19,7 @@ namespace Hospital.Entities
         }
         void updateData()
         {
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT * FROM  [Specialty] ;");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT * FROM  [Specialty] ;");
             dataGridView1.Columns[0].HeaderText = "id";
             dataGridView1.Columns[1].HeaderText = "Специализации врачей клиники";
         }
@@ -27,7 +27,7 @@ namespace Hospital.Entities
         private void butAddSpec_Click(object sender, EventArgs e)
         {
             if (textSpec.Text != "") { 
-            ConnectionDB.queryExecute(@"insert into [Specialty] (specialty)  VALUES(N'"+ textSpec.Text + "');");
+            Connection.queryExecute(@"insert into [Specialty] (specialty)  VALUES(N'"+ textSpec.Text + "');");
                 updateData();
             } else
             {
@@ -38,7 +38,7 @@ namespace Hospital.Entities
 
         private void butDelSpec_Click(object sender, EventArgs e)
         {
-            ConnectionDB.queryExecute("DELETE FROM [Specialty] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            Connection.queryExecute("DELETE FROM [Specialty] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
             updateData();
         }
 

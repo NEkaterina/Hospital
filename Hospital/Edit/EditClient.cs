@@ -25,7 +25,7 @@ namespace Hospital
         private void butOk_Click(object sender, EventArgs e)
         {
             Client client = new Client();
-            ConnectionDB.queryExecute(@"update [Client] set surname=N'" + tSurname.Text + "' , firstname =N'" + tFirstname.Text + "' , otchestvo =N'" + tOtchestvo.Text + "' , sex =N'" + comboSex.Text + @"' , dateOfBirth ='" + dateOfBirth.Text + "', passportSeries ='" + mSeries.Text + "' , passportNumber ='" + mNumber.Text + "' , city =N'" + tCity.Text + "' , street =N'" + tStreet.Text + "' , house ='" + mHouse.Text + "' , apartment ='" + mApartment.Text + "' , phoneNumber ='" + mPhone.Text + "' , email =N'" + tEmail.Text + "', policy='" + mPolicy.Text + "' where id=" + id.Text+ ";");
+            Connection.queryExecute(@"update [Client] set surname=N'" + tSurname.Text + "' , firstname =N'" + tFirstname.Text + "' , otchestvo =N'" + tOtchestvo.Text + "' , sex =N'" + comboSex.Text + @"' , dateOfBirth ='" + dateOfBirth.Text + "', passportSeries ='" + mSeries.Text + "' , passportNumber ='" + mNumber.Text + "' , city =N'" + tCity.Text + "' , street =N'" + tStreet.Text + "' , house ='" + mHouse.Text + "' , apartment ='" + mApartment.Text + "' , phoneNumber ='" + mPhone.Text + "' , email =N'" + tEmail.Text + "', policy='" + mPolicy.Text + "' where id=" + id.Text+ ";");
 
 
             this.Close();

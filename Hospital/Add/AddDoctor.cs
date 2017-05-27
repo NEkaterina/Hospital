@@ -30,20 +30,20 @@ namespace Hospital.Add
 
 
 
-            DataTable dt = ConnectionDB.getResult(@"SELECT *  FROM [Specialty] where specialty = N'" + comboSpecialty.Text + "'; ");
+            DataTable dt = Connection.getResult(@"SELECT *  FROM [Specialty] where specialty = N'" + comboSpecialty.Text + "'; ");
 
             int inSpec = (int)dt.Rows[0][0];
-            ConnectionDB.queryExecute(@"insert into [Post] (id_specialty,post,oklad)  VALUES(N'"
+            Connection.queryExecute(@"insert into [Post] (id_specialty,post,oklad)  VALUES(N'"
 + inSpec + "',N'" + textBpost.Text + "',N'" + maskedOklad.Text + "');");
 
 
-            dt = ConnectionDB.getResult(@"SELECT max(id) FROM [Post];");
+            dt = Connection.getResult(@"SELECT max(id) FROM [Post];");
             int ID = (int)dt.Rows[0][0];
 
 
 
 
-            ConnectionDB.queryExecute(@"insert into [Doctor] (surname,firstname,otchestvo,dateOfBirth,passportSeries,passportNumber,phoneNumber, email,id_post,sex)  VALUES(N'"
+            Connection.queryExecute(@"insert into [Doctor] (surname,firstname,otchestvo,dateOfBirth,passportSeries,passportNumber,phoneNumber, email,id_post,sex)  VALUES(N'"
  + textBsur.Text + "',N'" + textBname.Text + "',N'" + textBotch.Text + "',N'" + dateBirth.Text + "',N'"
  + maskedSer.Text + "',N'" + maskedNum.Text + "',N'" + maskedPhone.Text + "',N'"
  + textBemail.Text + "',N'" + ID + "',N'" + comboBsex.Text + "');");
@@ -58,7 +58,7 @@ namespace Hospital.Add
 
         public void comboBox()
         {
-            DataTable dt = ConnectionDB.getResult("select specialty from "
+            DataTable dt = Connection.getResult("select specialty from "
                     + "[Specialty]"); 
 
             for (int i = 0; i < dt.Rows.Count; i++)

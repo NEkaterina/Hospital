@@ -27,7 +27,7 @@ namespace Hospital.Edit
         private void butOk_Click(object sender, EventArgs e)
         {
             Client client = new Client();
-            ConnectionDB.queryExecute(@"update [TimeTable] set day=N'" + dayBox.Text + "' , timeS =N'" + maskedStart.Text + "' , timeF =N'" + maskedFinish.Text +  "' where id=" + id.Text + ";");
+            Connection.queryExecute(@"update [TimeTable] set day=N'" + dayBox.Text + "' , timeS =N'" + maskedStart.Text + "' , timeF =N'" + maskedFinish.Text +  "' where id=" + id.Text + ";");
 
 
             this.Close();

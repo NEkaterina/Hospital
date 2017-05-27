@@ -61,6 +61,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action\Jurnal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Action\Jurnal.Designer.cs">
+      <DependentUpon>Jurnal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Action\Priem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Action\Priem.Designer.cs">
+      <DependentUpon>Priem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add\AddEntryJurnal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddEntryJurnal.Designer.cs">
+      <DependentUpon>AddEntryJurnal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add\AddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddService.Designer.cs">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Action\Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Action\Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add\AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,17 +103,35 @@
     <Compile Include="Add\AddDoctor.Designer.cs">
       <DependentUpon>AddDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add\AddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add\AddTable.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Add\AddTable.Designer.cs">
       <DependentUpon>AddTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add\ProviderAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\ProviderAddEdit.designer.cs">
+      <DependentUpon>ProviderAddEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Edit\EditDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Edit\EditDoctor.Designer.cs">
       <DependentUpon>EditDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit\EditService.Designer.cs">
+      <DependentUpon>EditService.cs</DependentUpon>
     </Compile>
     <Compile Include="Edit\EditTable.cs">
       <SubType>Form</SubType>
@@ -110,11 +158,35 @@
     <Compile Include="Entities\Doctor.Designer.cs">
       <DependentUpon>Doctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\MedOboryd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\MedOboryd.Designer.cs">
+      <DependentUpon>MedOboryd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MedRashodniky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\MedRashodniky.Designer.cs">
+      <DependentUpon>MedRashodniky.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Provider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Provider.designer.cs">
+      <DependentUpon>Provider.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Salary.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Entities\Salary.Designer.cs">
       <DependentUpon>Salary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entities\Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Specialty.cs">
       <SubType>Form</SubType>
@@ -142,17 +214,41 @@
     <Compile Include="Servise\AlgoritmZP.Designer.cs">
       <DependentUpon>AlgoritmZP.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Action\Jurnal.resx">
+      <DependentUpon>Jurnal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Action\Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Action\Priem.resx">
+      <DependentUpon>Priem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add\AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add\AddDoctor.resx">
       <DependentUpon>AddDoctor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddEntryJurnal.resx">
+      <DependentUpon>AddEntryJurnal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddService.resx">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add\AddTable.resx">
       <DependentUpon>AddTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add\ProviderAddEdit.resx">
+      <DependentUpon>ProviderAddEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit\EditDoctor.resx">
       <DependentUpon>EditDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\EditService.resx">
+      <DependentUpon>EditService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit\EditTable.resx">
       <DependentUpon>EditTable.cs</DependentUpon>
@@ -166,8 +262,20 @@
     <EmbeddedResource Include="Entities\Doctor.resx">
       <DependentUpon>Doctor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entities\MedOboryd.resx">
+      <DependentUpon>MedOboryd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\MedRashodniky.resx">
+      <DependentUpon>MedRashodniky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Provider.resx">
+      <DependentUpon>Provider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Entities\Salary.resx">
       <DependentUpon>Salary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Service.resx">
+      <DependentUpon>Service.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entities\Specialty.resx">
       <DependentUpon>Specialty.cs</DependentUpon>

@@ -28,17 +28,17 @@ namespace Hospital.Add
         private void butOk_Click(object sender, EventArgs e)
         {
            
-            DataTable dt = ConnectionDB.getResult(@"SELECT *  FROM [Doctor] where  CONCAT(' ', surname,firstname,otchestvo) = N'" + docBox.Text + "'; ");
+            DataTable dt = Connection.getResult(@"SELECT *  FROM [Doctor] where  CONCAT(' ', surname,firstname,otchestvo) = N'" + docBox.Text + "'; ");
 
             int id = (int)dt.Rows[0][0];
-            ConnectionDB.queryExecute(@"insert into [TimeTable] (day,timeS,timeF,id_doctor)  VALUES(N'"
+            Connection.queryExecute(@"insert into [TimeTable] (day,timeS,timeF,id_doctor)  VALUES(N'"
  + dayBox.Text + "',N'" + maskedStart.Text + "',N'" + maskedFinish.Text + "',N'" + id +  "');");
             Close();
 
         }
         public void comboBox()
         {
-            DataTable dt = ConnectionDB.getResult("select specialty from "
+            DataTable dt = Connection.getResult("select specialty from "
                     + "[Specialty]");
 
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -52,7 +52,7 @@ namespace Hospital.Add
 
         private void specBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = ConnectionDB.getResult("select CONCAT(' ', surname,firstname,otchestvo) from "
+            DataTable dt = Connection.getResult("select CONCAT(' ', surname,firstname,otchestvo) from "
                    + "[Doctor] d join[Post] on d.id_post = Post.id join[Specialty] on Post.id_specialty = Specialty.id where specialty = N'" + specBox.Text + "'; ");
             for (int i = 0; i < dt.Rows.Count; i++)
             {

@@ -23,7 +23,7 @@ namespace Hospital
         }
         void updateData()
         {
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] ;");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] ;");
             dataGridView1.Columns[0].HeaderText = "id";
             dataGridView1.Columns[1].HeaderText = "Фамилия";
             dataGridView1.Columns[2].HeaderText = "Имя";
@@ -81,7 +81,7 @@ namespace Hospital
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            ConnectionDB.queryExecute("DELETE FROM [Client] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            Connection.queryExecute("DELETE FROM [Client] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
             updateData();
         }
 
@@ -90,49 +90,49 @@ namespace Hospital
             switch (comboSort.Text)
             {
                 case "id":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where id =" + textSort.Text +" ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where id =" + textSort.Text +" ;");
                     break;
                 case "Фамилия":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where surname = '" + textSort.Text + "';");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where surname = '" + textSort.Text + "';");
                     break;
                 case "Имя":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where firstname = '" + textSort.Text + "' ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where firstname = '" + textSort.Text + "' ;");
                     break;
                 case "Отчество":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where otchestvo = '" + textSort.Text + "';");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where otchestvo = '" + textSort.Text + "';");
                    break;
                 case "Пол":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where sex = '" + textSort.Text + "' ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where sex = '" + textSort.Text + "' ;");
                     break;
                 case "Дата Рождения":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where dateOfBirth = '" + textSort.Text + "' ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where dateOfBirth = '" + textSort.Text + "' ;");
                     break;
                 case "Полис":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where policy = " + textSort.Text + " ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where policy = " + textSort.Text + " ;");
                     break;
                 case "Серия паспорта":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where passportSeries= " + textSort.Text + ";");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where passportSeries= " + textSort.Text + ";");
                     break;
                 case "Номер паспорта":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where  passportNumber = " + textSort.Text + ";");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where  passportNumber = " + textSort.Text + ";");
                    break;
                 case "Город":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where city = '" + textSort.Text + "' ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where city = '" + textSort.Text + "' ;");
                     break;
                 case "Улица":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where street = '" + textSort.Text + "' ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where street = '" + textSort.Text + "' ;");
                     break;
                 case "Дом":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where house =" + textSort.Text + " ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where house =" + textSort.Text + " ;");
                     break;
                 case "Квартира":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where apartment =" + textSort.Text + ";");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where apartment =" + textSort.Text + ";");
                     break;
                 case "Телефон":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where phoneNumber =" + textSort.Text + " ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where phoneNumber =" + textSort.Text + " ;");
                     break;
                 case "Email":
-                    dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where email ='" + textSort.Text + "' ;");
+                    dataGridView1.DataSource = Connection.getResult(@"SELECT id, surname, firstname, otchestvo, sex, dateOfBirth, policy, passportSeries, passportNumber, city, street,house,apartment, phoneNumber, email  FROM  [Client] Where email ='" + textSort.Text + "' ;");
                     break;
             }
         }

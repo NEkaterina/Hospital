@@ -22,7 +22,7 @@ namespace Hospital.Entities
         }
         void updateData()
         {
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT d.id , surname, firstname, otchestvo, sex, dateOfBirth,  passportSeries, passportNumber, specialty, post, oklad,  phoneNumber, email  FROM  [Doctor] d join [Post] on d.id_post = Post.id join [Specialty] on Post.id_specialty = Specialty.id ;");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT d.id , surname, firstname, otchestvo, sex, dateOfBirth,  passportSeries, passportNumber, specialty, post, oklad,  phoneNumber, email  FROM  [Doctor] d join [Post] on d.id_post = Post.id join [Specialty] on Post.id_specialty = Specialty.id ;");
             dataGridView1.Columns[0].HeaderText = "id";
             dataGridView1.Columns[1].HeaderText = "Фамилия";
             dataGridView1.Columns[2].HeaderText = "Имя";
@@ -52,21 +52,12 @@ namespace Hospital.Entities
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBox1.Text == "Post")
-            //{
-            //    DataTable dt = ConnectionDB.getResult(@"SELECT * FROM [Post];");
-            //    dataGridView1.DataSource = dt;
-
-            //}
-            //else
-            //{
-            //    dataGridView1.DataSource = ConnectionDB.getResult("select * from [Doctor];");
-            //}
+            
         }
 
         private void delDoctor_Click(object sender, EventArgs e)
         {
-            ConnectionDB.queryExecute("DELETE FROM [Post] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            Connection.queryExecute("DELETE FROM [Post] WHERE id = " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
             updateData();
         }
 

@@ -33,7 +33,7 @@ namespace Hospital
                 return;
             }
 
-            ConnectionDB.queryExecute(@"insert into [Client] (surname,firstname,otchestvo,sex,dateOfBirth,passportSeries,passportNumber,city,street,house,apartment,phoneNumber, email,policy)  VALUES(N'"
+            Connection.queryExecute(@"insert into [Client] (surname,firstname,otchestvo,sex,dateOfBirth,passportSeries,passportNumber,city,street,house,apartment,phoneNumber, email,policy)  VALUES(N'"
   + tSurname.Text + "',N'" + tFirstname.Text + "',N'" + tOtchestvo.Text + "',N'" + comboSex.Text + "','" + dateOfBirth.Text + "','" + mSeries.Text + "','" + mNumber.Text + "',N'" + tCity.Text + "',N'"
   + tStreet.Text + "','" + mHouse.Text + "','" + mApartment.Text + "','" + mPhone.Text + "',N'" + tEmail.Text + "','" + mPolicy.Text + "');");
 

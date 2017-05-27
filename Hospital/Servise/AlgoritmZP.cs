@@ -16,7 +16,7 @@ namespace Hospital.Servise
         public AlgoritmZP()
         {
             InitializeComponent();
-            DataTable dt = ConnectionDB.getResult(@"SELECT CONCAT(' ', surname,firstname,otchestvo)  FROM  [Doctor];");
+            DataTable dt = Connection.getResult(@"SELECT CONCAT(' ', surname,firstname,otchestvo)  FROM  [Doctor];");
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -32,7 +32,7 @@ namespace Hospital.Servise
 
         private void comboFio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable dt = ConnectionDB.getResult("select oklad from [Post] join [Doctor] on Doctor.id_post= Post.id where CONCAT(' ', surname,firstname,otchestvo) =N'" + comboFio.Text + "' ; ");
+            DataTable dt = Connection.getResult("select oklad from [Post] join [Doctor] on Doctor.id_post= Post.id where CONCAT(' ', surname,firstname,otchestvo) =N'" + comboFio.Text + "' ; ");
             maskedOklad.Text = Convert.ToString(dt.Rows[0][0]);
 
         }
@@ -49,13 +49,13 @@ namespace Hospital.Servise
             int prize = Convert.ToInt32(maskedPrize.Text);
             int oklad = Convert.ToInt32(maskedOklad.Text);
             int zarplata = raschetZarplat(time, prize, oklad);
-            DataTable dt = ConnectionDB.getResult(@"SELECT id  FROM  [Doctor] where CONCAT(' ', surname,firstname,otchestvo) = N'" + comboFio.Text + "'; ");
+            DataTable dt = Connection.getResult(@"SELECT id  FROM  [Doctor] where CONCAT(' ', surname,firstname,otchestvo) = N'" + comboFio.Text + "'; ");
 
             int id = (int)dt.Rows[0][0];
 
             if (salary.butPere.Text == "Расчитать") {
 
-            ConnectionDB.queryExecute(@"insert into [Salary] (id_doctor,timeWok,prize,salary,dataNach,dataFin)  VALUES(N'"
+            Connection.queryExecute(@"insert into [Salary] (id_doctor,timeWok,prize,salary,dataNach,dataFin)  VALUES(N'"
   + id + "',N'" + maskedTime.Text + "',N'" + maskedPrize.Text + "',N'" + zarplata + "',N'" + dateS.Text + "',N'" + dateF.Text + "');");
             }
         }
@@ -68,7 +68,7 @@ namespace Hospital.Servise
             int week = days / 7;
             int calc = 0;
             int p = 0;
-            DataTable dt = ConnectionDB.getResult("select DATEDIFF(hh, timeS,timeF) from [TimeTable] join [Doctor] on TimeTable.id_doctor= Doctor.id where CONCAT(' ', surname,firstname,otchestvo) =N'" + comboFio.Text + "' ; ");
+            DataTable dt = Connection.getResult("select DATEDIFF(hh, timeS,timeF) from [TimeTable] join [Doctor] on TimeTable.id_doctor= Doctor.id where CONCAT(' ', surname,firstname,otchestvo) =N'" + comboFio.Text + "' ; ");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 calc += Convert.ToInt32(dt.Rows[i][0]);

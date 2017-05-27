@@ -21,7 +21,7 @@ namespace Hospital.Entities
 
         void update()
         {
-            dataGridView1.DataSource = ConnectionDB.getResult(@"SELECT t.id,CONCAT(' ', surname, firstname, otchestvo),timeWok, prize, salary, CONCAT(' ', dataNach, '-',dataFin)  FROM  [Salary] t join [Doctor] on t.id_doctor = Doctor.id  ;");
+            dataGridView1.DataSource = Connection.getResult(@"SELECT t.id,CONCAT(' ', surname, firstname, otchestvo),timeWok, prize, salary, CONCAT(' ', dataNach, '-',dataFin)  FROM  [Salary] t join [Doctor] on t.id_doctor = Doctor.id  ;");
             dataGridView1.Columns[0].HeaderText = "№";
             dataGridView1.Columns[1].HeaderText = "ФИО";
             dataGridView1.Columns[2].HeaderText = "Время работы";
@@ -54,7 +54,7 @@ namespace Hospital.Entities
             int prize = Convert.ToInt32(alg.maskedPrize.Text);
             int oklad = Convert.ToInt32(alg.maskedOklad.Text);
             int zarplata = alg.raschetZarplat(time, prize, oklad);
-            ConnectionDB.queryExecute(@"update [Salary] set timeWok=N'" + alg.maskedTime.Text + "',prize=N'" + alg.maskedPrize.Text + "',salary = N'" + zarplata + "' where id =" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + ";");
+            Connection.queryExecute(@"update [Salary] set timeWok=N'" + alg.maskedTime.Text + "',prize=N'" + alg.maskedPrize.Text + "',salary = N'" + zarplata + "' where id =" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + ";");
             update();
             this.Show();
 
@@ -62,7 +62,7 @@ namespace Hospital.Entities
 
         private void butDel_Click(object sender, EventArgs e)
         {
-            ConnectionDB.queryExecute("DELETE FROM [Salary] WHERE  id = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString()+"';");
+            Connection.queryExecute("DELETE FROM [Salary] WHERE  id = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString()+"';");
             update();
         }
     }
